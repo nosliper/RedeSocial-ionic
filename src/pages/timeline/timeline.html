@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="isPosting = !isPosting">
+                <ion-icon name="create"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-segment>
+            <ion-title>Timeline</ion-title>
+        </ion-segment>
+        <ion-buttons end>
+            <button ion-button color="danger" (click)="logout()">logout</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngIf="isPosting">
+        <ion-item>
+            <ion-textarea rows="3" #text></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <button ion-button large color="default" (click)="post(text.value)">Post</button>
+        </ion-item>
+    </ion-list>
+    <ion-list *ngIf="!isPosting">
+        <ion-item *ngFor="let post of posts">
+            <ion-card>
+                <ion-card-header>
+                    {{post.author}}
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        {{post.texto}}
+                    </p>
+                </ion-card-content>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button icon-start clear small>
+                            <ion-icon name="thumbs-up"></ion-icon>
+                            <div>{{post.likes}} Likes</div>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-item>
+    </ion-list>
+</ion-content>
