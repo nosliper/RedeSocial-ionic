@@ -41,7 +41,8 @@ export class PostProvider {
     }
 
     getPostAuthor(id: string): Observable<any> {
-        return this.http.get(this.apiUrl + id + "/usuario" + "?token=" + this.getToken())
+        let url = this.apiUrl + id + "/usuario" + "?token=" + this.getToken();
+        return this.http.get(url)
         .map(function(res: Response) {
                 return res.json();
             },

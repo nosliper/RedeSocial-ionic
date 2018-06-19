@@ -40,6 +40,16 @@ export class UserProvider {
         });
     }
 
+    getUserPosts(id: string): Observable<any> {
+        return this.http.get(this.apiUrl + id + "/posts" + "?token=" + this.getToken())
+        .map(function(res: Response) {
+                return res.json();
+            },
+            function(error) {
+                console.log(error);
+        })
+    }
+
     login(email: string, password: string): Observable<any> {
         return this.http.post(this.apiUrl + "/signin", 
             {

@@ -34,7 +34,8 @@ export class TimelinePage {
                     let post = {
                         _id: p._id,
                         texto: p.texto,
-                        likes: p.likes
+                        likes: p.likes,
+                        uid: p.uid
                     }
                     fillAuthor(post, provider);
                     posts.unshift(post);
