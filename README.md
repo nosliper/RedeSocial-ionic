@@ -1,2 +1,2 @@
-# RedeSocial-ionic
-RedeSocial interface using ionic, to consume the Rest API made for such.
+# RedeSocial-ionic - front-end usando Ionic para RedeSocial
+Interface para a atividade de Projeto de Interfaces Web utilizando Ionic.
